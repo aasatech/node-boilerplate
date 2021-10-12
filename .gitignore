@@ -1,0 +1,6 @@
+.env
+node_modules
+!logs/.keep
+logs/*
+.bundle/
+log/
