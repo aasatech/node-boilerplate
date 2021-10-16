@@ -26,11 +26,11 @@ app.set("trust proxy", true);
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static("public"));
 app.use(compression());
 app.use(cors(corsOption));
 
 app.use(morgan('combined', { stream: logger }))
+app.use(morgan(logMode))
 
 Model.knex(db);
 routes(app);

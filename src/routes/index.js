@@ -1,7 +1,6 @@
-import Home from '~/app/controllers/home';
+import express from 'express';
+import pingRouter from './ping';
 
-export default (route) => {
-  route.get("/", Home.index);
-
-  return route;
-};
+const routes = express.Router();
+routes.use('/ping', pingRouter);
+export default routes;

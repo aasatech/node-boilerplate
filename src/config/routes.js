@@ -1,17 +1,15 @@
-import express from "express";
 import requestIp from "request-ip";
 import routes from "../routes";
 
 require("express-async-errors");
 
 export default app => {
-  const router = express.Router();
   app.use(requestIp.mw());
 
   app.get("/", (_, res) =>
     res.json({message: 'Welcome to my home. knock! knock!'})
   );
-  app.use("/api/v1", routes(router));
+  app.use("/api/v1", routes);
 
   app.use((_, res) => {
     return res.status(404).json({message: 404});
